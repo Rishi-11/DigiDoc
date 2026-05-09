@@ -156,31 +156,32 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
               </p>
 
               <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mt-8 mb-4">
-                5. Cookies
+                5. Cookies and Advertising
               </h2>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                We use minimal cookies for essential functionality:
+                We use cookies to ensure the basic functionality of the site and to serve personalized advertisements:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-[hsl(var(--color-muted-foreground))] mb-4">
-                <li><strong>Essential cookies:</strong> Required for the website to function properly</li>
-                <li><strong>Preference cookies:</strong> Remember your settings like language preference</li>
+                <li><strong>Essential cookies:</strong> Required for the website to function properly.</li>
+                <li><strong>Preference cookies:</strong> Remember your settings like language preference.</li>
+                <li><strong>Advertising cookies (Google AdSense):</strong> Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our site and/or other sites on the Internet.</li>
               </ul>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                We do not use tracking cookies or advertising cookies.
+                Users may opt out of personalized advertising by visiting <a href="https://myadcenter.google.com/" target="_blank" rel="noopener noreferrer" className="text-[hsl(var(--color-primary))] hover:underline">Google Ads Settings</a>.
               </p>
 
               <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mt-8 mb-4">
                 6. Third-Party Services
               </h2>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                {t('common.brand')} does not share your data with third parties. We do not use:
+                While we process all your PDF files locally on your device, we use certain third-party services to support the website:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-[hsl(var(--color-muted-foreground))] mb-4">
-                <li>Third-party analytics that track individual users</li>
-                <li>Advertising networks</li>
-                <li>Social media tracking pixels</li>
-                <li>External file processing services</li>
+                <li><strong>Google AdSense:</strong> We use Google AdSense to display advertisements. As described above, Google uses cookies to personalize these ads.</li>
               </ul>
+              <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
+                We do <strong>not</strong> share your files or personal documents with any third party, including Google. Your files remain strictly on your device.
+              </p>
 
               <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mt-8 mb-4">
                 7. Data Security
