@@ -3,7 +3,8 @@ import Script from 'next/script';
 import '@/app/globals.css';
 
 export const metadata: Metadata = {
-  title: 'PDFCraft - Professional PDF Tools',
+  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://Rishi-11.github.io/DigiDoc' : 'http://localhost:3000'),
+  title: 'DigiDoc - Professional PDF Tools',
   description: 'Free online PDF tools for merging, splitting, compressing, and converting PDF files. All processing happens in your browser for maximum privacy.',
   icons: {
     icon: '/favicon.svg',

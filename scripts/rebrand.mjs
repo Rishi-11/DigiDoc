@@ -27,6 +27,7 @@ const replacements = [
 
 const filesToProcess = [
   'src/config/site.ts',
+  'src/app/layout.tsx',
   'package.json',
   'src-tauri/tauri.conf.json',
   'README.md',
