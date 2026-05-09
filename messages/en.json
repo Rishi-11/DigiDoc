@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "PDFCraft - Professional PDF Tools",
+      "title": "DigiDoc - Professional PDF Tools",
       "description": "Free, Private & Browser-Based. Merge, edit, and edit PDF files online without uploading to servers."
     },
     "tools": {
@@ -14,7 +14,7 @@
     },
     "faq": {
       "title": "Frequently Asked Questions",
-      "description": "Find answers to common questions about PDFCraft. Learn how to use our PDF tools effectively."
+      "description": "Find answers to common questions about DigiDoc. Learn how to use our PDF tools effectively."
     },
     "privacy": {
       "title": "Privacy Policy",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
+    "brand": "DigiDoc",
     "tagline": "Professional PDF Tools - Free & Private",
     "navigation": {
       "home": "Home",
@@ -83,8 +83,8 @@
       "loading": "Loading..."
     },
     "footer": {
-      "footer": "© 2025 PDFCraft. All rights reserved.",
-      "copyright": "© {year} PDFCraft. All rights reserved.",
+      "footer": "© 2025 DigiDoc. All rights reserved.",
+      "copyright": "© {year} DigiDoc. All rights reserved.",
       "privacyBadge": "100% Private - Files never leave your device",
       "madeWith": "Made with <Heart /> and <Nextjs />"
     },

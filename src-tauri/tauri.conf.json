@@ -1,7 +1,7 @@
 {
-  "productName": "PDFCraft",
+  "productName": "DigiDoc",
   "version": "0.1.0",
-  "identifier": "com.pdfcraft.app",
+  "identifier": "com.digidoc.app",
   "build": {
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build",
@@ -11,13 +11,13 @@
   "app": {
     "windows": [
       {
-        "title": "PDFCraft",
+        "title": "DigiDoc",
         "width": 1200,
         "height": 800
       }
     ],
     "security": {
-      "csp": "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-eval'; worker-src blob: 'self'; wasm-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self' data: blob:;"
+      "csp": "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagservices.com https://googleads.g.doubleclick.net; worker-src blob: 'self'; wasm-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; font-src 'self' data:; media-src 'self' blob:; connect-src 'self' data: blob: https://pagead2.googlesyndication.com; frame-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com;"
     }
   },
   "bundle": {

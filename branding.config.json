@@ -1,0 +1,13 @@
+{
+  "name": "DigiDoc",
+  "tagline": "Professional PDF Tools - Free & Private",
+  "description": "Professional PDF Tools - Free, Private & Browser-Based. Merge, split, compress, convert, and edit PDF files online without uploading to servers.",
+  "url": "https://digidoc.app",
+  "github": "https://github.com/digidoc/digidoc",
+  "twitter": "https://twitter.com/digidoc",
+  "creator": "DigiDoc Team",
+  "colors": {
+    "primary": "226 71% 55%",
+    "accent": "172 66% 50%"
+  }
+}

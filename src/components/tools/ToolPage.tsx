@@ -12,6 +12,7 @@ import { getToolIcon } from '@/config/icons';
 import Link from 'next/link';
 import { Home, ChevronRight } from 'lucide-react';
 import { FavoriteButton } from '@/components/ui/FavoriteButton';
+import { GoogleAd } from '@/components/ads/GoogleAd';
 import { useMemo } from 'react';
 import { sanitizeHtml } from '@/lib/utils/html-sanitizer';
 
@@ -103,6 +104,11 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
               {children}
             </section>
 
+            {/* Mid-Page Advertisement */}
+            <div className="my-10 w-full flex justify-center">
+              <GoogleAd slot="YOUR_MID_PAGE_AD_SLOT" className="max-w-4xl" />
+            </div>
+
             {/* Description Section */}
             <DescriptionSection description={content.description} />
 
@@ -114,6 +120,11 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
 
             {/* FAQ Section */}
             <FAQSection faq={content.faq} />
+
+            {/* Bottom-Page Advertisement */}
+            <div className="my-10 w-full flex justify-center">
+              <GoogleAd slot="YOUR_BOTTOM_PAGE_AD_SLOT" className="max-w-4xl" />
+            </div>
 
             {/* Related Tools Section */}
             <RelatedToolsSection
