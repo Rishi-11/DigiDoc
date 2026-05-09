@@ -25,6 +25,7 @@ export default function RootLayout({
       <head>
         <meta name="color-scheme" content="light dark" />
         <style dangerouslySetInnerHTML={{ __html: 'html{scrollbar-gutter:stable}' }} />
+        <link rel="icon" href={`${process.env.GITHUB_ACTIONS === 'true' ? '/DigiDoc' : ''}/favicon.svg`} type="image/svg+xml" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
