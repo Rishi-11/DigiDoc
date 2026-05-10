@@ -12,7 +12,7 @@ const nextConfig = {
   // Enable static export for deployment flexibility
   output: 'export',
   basePath: '',
-  assetPrefix: process.env.TAURI_ENV ? '/' : undefined,
+  assetPrefix: '',
 
   // Webpack configuration for WASM modules
   webpack: (config, { isServer, webpack }) => {
