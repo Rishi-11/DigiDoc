@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Unit Tests for Redact PDF Processor
  * Requirements: 5.1
  * 
