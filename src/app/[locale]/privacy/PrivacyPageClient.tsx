@@ -178,6 +178,7 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
               </p>
               <ul className="list-disc pl-6 space-y-2 text-[hsl(var(--color-muted-foreground))] mb-4">
                 <li><strong>Google AdSense:</strong> We use Google AdSense to display advertisements. As described above, Google uses cookies to personalize these ads.</li>
+                <li><strong>Google Analytics:</strong> We use Google Analytics to understand how visitors interact with our website. This helps us improve our tools and user experience. Google Analytics collects anonymous data such as page views, time spent on site, and general geographic location.</li>
               </ul>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
                 We do <strong>not</strong> share your files or personal documents with any third party, including Google. Your files remain strictly on your device.
