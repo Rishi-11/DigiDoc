@@ -11,8 +11,8 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 const nextConfig = {
   // Enable static export for deployment flexibility
   output: 'export',
-  basePath: process.env.GITHUB_ACTIONS === 'true' ? '/DigiDoc' : '',
-  assetPrefix: process.env.GITHUB_ACTIONS === 'true' ? '/DigiDoc' : (process.env.TAURI_ENV ? '/' : undefined),
+  basePath: '',
+  assetPrefix: process.env.TAURI_ENV ? '/' : undefined,
 
   // Webpack configuration for WASM modules
   webpack: (config, { isServer, webpack }) => {

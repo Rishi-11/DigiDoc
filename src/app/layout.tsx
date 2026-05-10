@@ -4,7 +4,7 @@ import '@/app/globals.css';
 import { CookieBanner } from '@/components/legal/CookieBanner';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://Rishi-11.github.io/DigiDoc' : 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://digidocpdf.online' : 'http://localhost:3000'),
   title: 'DigiDoc - Professional PDF Tools',
   description: 'Free online PDF tools for merging, splitting, compressing, and converting PDF files. All processing happens in your browser for maximum privacy.',
   icons: {
@@ -26,7 +26,7 @@ export default function RootLayout({
       <head>
         <meta name="color-scheme" content="light dark" />
         <style dangerouslySetInnerHTML={{ __html: 'html{scrollbar-gutter:stable}' }} />
-        <link rel="icon" href={`${process.env.GITHUB_ACTIONS === 'true' ? '/DigiDoc' : ''}/favicon.svg`} type="image/svg+xml" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
