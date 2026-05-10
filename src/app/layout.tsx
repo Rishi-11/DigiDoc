@@ -42,22 +42,22 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         {children}
-        {/* Google AdSense Script - Replace client ID with your actual ID */}
+        {/* Google AdSense Script */}
         {process.env.NODE_ENV === 'production' && (
           <Script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4618366384114056"
-            crossOrigin="anonymous"
+            id="adsbygoogle-init"
             strategy="afterInteractive"
+            crossOrigin="anonymous"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4618366384114056"
           />
         )}
         {/* Google Analytics (GA4) */}
         {process.env.NODE_ENV === 'production' && (
           <>
             <Script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=G-LP8NXH9G6D"
+              id="gtag-script"
               strategy="afterInteractive"
+              src="https://www.googletagmanager.com/gtag/js?id=G-LP8NXH9G6D"
             />
             <Script id="google-analytics" strategy="afterInteractive">
               {`

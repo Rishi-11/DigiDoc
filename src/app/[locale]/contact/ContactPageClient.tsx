@@ -56,8 +56,33 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Note: For direct email endpoints, Formspree requires native HTML form submission, not AJAX.
-  // We use the action and method attributes on the form element below.
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    
+    try {
+      const response = await fetch('https://formspree.io/f/rushibhavake1@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: `DigiDoc Contact Form: ${formData.subject}`
+        })
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setFormStatus('error');
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -143,9 +168,7 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
                 </Card>
               ) : (
                 <Card className="p-6 md:p-8">
-                  <form action="https://formspree.io/rushibhavake1@gmail.com" method="POST" className="space-y-6">
-                    <input type="hidden" name="_subject" value={`DigiDoc Contact Form: ${formData.subject}`} />
-                    <input type="hidden" name="_next" value="https://digidocpdf.online/en/contact" />
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label
@@ -241,8 +264,9 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
                       type="submit"
                       variant="primary"
                       className="w-full"
+                      disabled={formStatus === 'submitting'}
                     >
-                      {t('form.submit.default')}
+                      {formStatus === 'submitting' ? t('form.submitting', { fallback: 'Submitting...' }) : t('form.submit.default')}
                       <Send className="ml-2 h-4 w-4" />
                     </Button>
                   </form>

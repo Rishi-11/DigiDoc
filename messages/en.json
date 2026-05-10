@@ -1,4 +1,4 @@
-﻿{
+{
   "metadata": {
     "home": {
       "title": "DigiDoc - Professional PDF Tools",
@@ -83,8 +83,8 @@
       "loading": "Loading..."
     },
     "footer": {
-      "footer": "© 2025 DigiDoc. All rights reserved.",
-      "copyright": "© {year} DigiDoc. All rights reserved.",
+      "footer": "� 2025 DigiDoc. All rights reserved.",
+      "copyright": "� {year} DigiDoc. All rights reserved.",
       "privacyBadge": "100% Private - Files never leave your device",
       "madeWith": "Made with <Heart /> and <Nextjs />"
     },
@@ -135,7 +135,7 @@
     },
     "search": {
       "placeholder": "Search tools...",
-      "hint": "Press Enter to select, ↑↓ to navigate",
+      "hint": "Press Enter to select, ?? to navigate",
       "noResults": "No tools found"
     },
     "fileUploader": {
@@ -284,7 +284,7 @@
     "description": "{brand} is a free, privacy-focused PDF toolkit that runs entirely in your browser. With {count}+ professional tools, you can edit, convert, merge, split, and secure your PDF files without ever uploading them to a server.",
     "mission": {
       "title": "Our Mission",
-      "p1": "We believe that everyone should have access to powerful PDF tools without compromising their privacy or paying expensive subscription fees. That's why we created {brand} – a comprehensive PDF toolkit that puts your privacy first.",
+      "p1": "We believe that everyone should have access to powerful PDF tools without compromising their privacy or paying expensive subscription fees. That's why we created {brand} � a comprehensive PDF toolkit that puts your privacy first.",
       "p2": "Unlike traditional PDF services that require you to upload your files to remote servers, {brand} processes everything locally in your browser. Your sensitive documents never leave your device, giving you complete control over your data.",
       "p3": "Whether you're a student, professional, or casual user, {brand} provides all the tools you need to work with PDFs efficiently and securely."
     },
@@ -342,7 +342,7 @@
       "email": {
         "title": "Email",
         "description": "Send us an email and we'll respond within 24-48 hours.",
-        "action": "contact@DigiDoc.app"
+        "action": "rushibhavake1@gmail.com"
       },
       "github": {
         "title": "GitHub",
@@ -755,13 +755,13 @@
       "addBorder": "Add border around pages",
       "borderColor": "Border Color",
       "layoutPreview": "Layout Preview",
-      "gridLayoutInfo": "Grid: {cols} × {rows} ({perSheet} pages per sheet)",
-      "previewInfo": "{pages} pages → {sheets} output sheet(s)",
+      "gridLayoutInfo": "Grid: {cols} � {rows} ({perSheet} pages per sheet)",
+      "previewInfo": "{pages} pages ? {sheets} output sheet(s)",
       "readingOrder": "Reading order",
-      "topToBottom": "↓ Top to bottom",
-      "leftToRight": "→ Left to right, then ↓ down",
+      "topToBottom": "? Top to bottom",
+      "leftToRight": "? Left to right, then ? down",
       "createButton": "Create {pages}-Up PDF",
-      "createCustomButton": "Create {cols}×{rows} PDF",
+      "createCustomButton": "Create {cols}�{rows} PDF",
       "gridLabel": "Grid Layout",
       "outputPages": "Output Sheets",
       "pagesLabel": "pages",
@@ -841,7 +841,7 @@
       "fill": "Fill (may crop)",
       "pageRange": "Page Range (optional)",
       "pageRangePlaceholder": "e.g., 1-5, 8, 10-15 (leave empty for all pages)",
-      "previewInfo": "Each page will be split into {rows}×{cols} = {total} tiles.",
+      "previewInfo": "Each page will be split into {rows}�{cols} = {total} tiles.",
       "createButton": "Posterize PDF",
       "successMessage": "PDF posterized successfully! Click the download button to save your file."
     },
@@ -997,7 +997,7 @@
       "uploadLabel": "Upload PDF to Edit",
       "uploadDescription": "Drag and drop a PDF file here, or click to browse.",
       "instructions": "How to use",
-      "instructionsText": "Use the toolbar above the PDF to add text, draw, highlight, or add images. Click the download button (💾) in the toolbar to save your edited PDF.",
+      "instructionsText": "Use the toolbar above the PDF to add text, draw, highlight, or add images. Click the download button (??) in the toolbar to save your edited PDF.",
       "saveButton": "Save PDF",
       "saveDownload": "Save & Download",
       "saveError": "Failed to save PDF. Please use the export button in the toolbar.",
@@ -1075,7 +1075,7 @@
       "algorithmPhoton": "Photon",
       "algorithmStandardDesc": "General-purpose compression using object streams",
       "algorithmCondenseDesc": "Optimizes structure while preserving interactivity",
-      "algorithmPhotonDesc": "Rasterizes pages — best for image-heavy PDFs",
+      "algorithmPhotonDesc": "Rasterizes pages � best for image-heavy PDFs",
       "photonWarning": "Note: Photon converts pages to images, which may reduce text quality and lose interactivity (links, forms).",
       "photonDpiLabel": "Output DPI",
       "photonDpiDesc": "Higher DPI = better quality, larger file size",
@@ -1158,8 +1158,8 @@
       "divisionType": "Division Type",
       "vertical": "Vertical",
       "horizontal": "Horizontal",
-      "grid2x2": "2×2 Grid",
-      "grid3x3": "3×3 Grid",
+      "grid2x2": "2�2 Grid",
+      "grid3x3": "3�3 Grid",
       "previewInfo": "Each page will be divided based on the selected option.",
       "divideButton": "Divide Pages",
       "successMessage": "Pages divided successfully!"
@@ -1196,7 +1196,7 @@
       "uploadLabel": "Upload PDF File",
       "uploadDescription": "Drag and drop a PDF file here, or click to browse.",
       "passwordTitle": "Password Settings",
-      "privacyNotice": "🔒 Your passwords are processed locally and never sent to any server.",
+      "privacyNotice": "?? Your passwords are processed locally and never sent to any server.",
       "userPasswordLabel": "User Password (to open document)",
       "userPasswordPlaceholder": "Enter password to open PDF",
       "userPasswordHint": "Required to open and view the PDF.",
@@ -1219,7 +1219,7 @@
       "uploadLabel": "Upload PDF File",
       "uploadDescription": "Drag and drop an encrypted PDF file.",
       "passwordTitle": "Enter Password",
-      "privacyNotice": "🔒 Your password is processed locally and never sent to any server.",
+      "privacyNotice": "?? Your password is processed locally and never sent to any server.",
       "passwordLabel": "PDF Password",
       "passwordPlaceholder": "Enter the PDF password",
       "passwordHint": "Leave empty if the PDF only has owner password restrictions.",
@@ -1238,9 +1238,9 @@
       "rotateButton": "Rotate PDF",
       "successMessage": "PDF pages rotated successfully! Click the download button to save your file.",
       "angle": "Angle",
-      "rotateRight": "Rotate Right 90°",
-      "rotateLeft": "Rotate Left 90°",
-      "rotate180": "Rotate 180°",
+      "rotateRight": "Rotate Right 90�",
+      "rotateLeft": "Rotate Left 90�",
+      "rotate180": "Rotate 180�",
       "applyTo": "Apply to",
       "allPages": "All Pages",
       "oddPages": "Odd Pages",
@@ -1635,7 +1635,7 @@
       "uploadDescription": "Drag and drop a PDF file here, or click to browse.",
       "optionsTitle": "Document Permissions",
       "passwordTitle": "Password Settings",
-      "privacyNotice": "🔒 Your passwords are processed locally and never sent to any server.",
+      "privacyNotice": "?? Your passwords are processed locally and never sent to any server.",
       "currentPasswordLabel": "Current Password (if PDF is encrypted)",
       "currentPasswordPlaceholder": "Enter current password",
       "currentPasswordHint": "Required if the PDF is already password-protected.",
@@ -1702,7 +1702,7 @@
       "bookmarksTitle": "Bookmarks",
       "addBookmark": "Add Bookmark",
       "noBookmarks": "No bookmarks yet. Click 'Add Bookmark' to create one.",
-      "hint": "Click a bookmark to preview its page. Use +/✎/× to add child, edit, or delete.",
+      "hint": "Click a bookmark to preview its page. Use +/?/� to add child, edit, or delete.",
       "saveButton": "Save Bookmarks",
       "successMessage": "Bookmarks saved successfully!"
     },

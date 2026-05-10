@@ -72,7 +72,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
               <a href="#" className="p-2 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all">
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all">
+              <a href="mailto:rushibhavake1@gmail.com" className="p-2 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all">
                 <Mail className="w-4 h-4" />
               </a>
             </div>
