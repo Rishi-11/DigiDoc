@@ -33,7 +33,7 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
       title: t('methods.email.title'),
       description: t('methods.email.description'),
       action: t('methods.email.action'),
-      href: 'mailto:contact@digidoc.app',
+      href: 'mailto:rushibhavake1@gmail.com',
     },
     {
       icon: Github,
@@ -60,12 +60,24 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     e.preventDefault();
     setFormStatus('submitting');
 
-    // Simulate form submission (in a real app, this would send to an API)
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    const response = await fetch('https://formspree.io/rushibhavake1@gmail.com', { 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        ...formData,
+        _subject: `DigiDoc Contact Form: ${formData.subject}`
+      })
+    });
 
-    // For demo purposes, always succeed
-    setFormStatus('success');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    if (response.ok) {
+      setFormStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } else {
+      setFormStatus('error');
+    }
   };
 
   return (
