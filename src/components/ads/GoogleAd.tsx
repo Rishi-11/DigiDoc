@@ -12,8 +12,8 @@ interface GoogleAdProps {
 }
 
 export function GoogleAd({
-  client = 'ca-pub-YOUR_PUBLISHER_ID', // TODO: Replace with actual client ID
-  slot = 'YOUR_AD_SLOT_ID',          // TODO: Replace with actual slot ID
+  client = 'ca-pub-4618366384114056', // Replace with actual client ID
+  slot = 'YOUR_AD_SLOT_ID',          // Replace with actual slot ID
   format = 'auto',
   responsive = true,
   className = '',
