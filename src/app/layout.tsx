@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import '@/app/globals.css';
-import { CookieBanner } from '@/components/legal/CookieBanner';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://digidocpdf.online' : 'http://localhost:3000'),
@@ -52,7 +51,6 @@ export default function RootLayout({
             strategy="afterInteractive"
           />
         )}
-        <CookieBanner />
       </body>
     </html>
   );
