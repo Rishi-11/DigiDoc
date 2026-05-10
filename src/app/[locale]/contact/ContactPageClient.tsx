@@ -64,7 +64,7 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfXCrUQccGjvSHWKi3oYDjBzPAAfLhqBmG9bz9nMP9_PHmE5g/formResponse';
     
     // Map your fields to Google Form Entry IDs
-    const formDataToSubmit = new FormData();
+    const formDataToSubmit = new URLSearchParams();
     formDataToSubmit.append('entry.395126664', formData.name);
     formDataToSubmit.append('entry.2008303539', formData.email);
     formDataToSubmit.append('entry.1781783458', formData.subject);
@@ -76,7 +76,10 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
       await fetch(GOOGLE_FORM_URL, {
         method: 'POST',
         mode: 'no-cors',
-        body: formDataToSubmit
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formDataToSubmit.toString(),
       });
 
       // Since we can't check response.ok in 'no-cors' mode, 
