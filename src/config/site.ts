@@ -4,10 +4,10 @@
 export const siteConfig = {
   name: 'DigiDoc',
   description: 'Professional PDF Tools - Free, Private & Browser-Based. Merge, split, compress, convert, and edit PDF files online without uploading to servers.',
-  url: 'https://digidoc.app',
+  url: 'https://digidocpdf.online',
   ogImage: '/images/og-image.png',
   links: {
-    github: 'https://github.com/digidoc/digidoc',
+    github: 'https://github.com/Rishi-11/DigiDoc',
     twitter: 'https://twitter.com/digidoc',
   },
   creator: 'DigiDoc Team',
