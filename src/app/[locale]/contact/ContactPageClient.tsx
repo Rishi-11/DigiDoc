@@ -60,26 +60,31 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     e.preventDefault();
     setFormStatus('submitting');
     
+    // Google Form details
+    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfXCrUQccGjvSHWKi3oYDjBzPAAfLhqBmG9bz9nMP9_PHmE5g/formResponse';
+    
+    // Map your fields to Google Form Entry IDs
+    const formDataToSubmit = new FormData();
+    formDataToSubmit.append('entry.395126664', formData.name);
+    formDataToSubmit.append('entry.2008303539', formData.email);
+    formDataToSubmit.append('entry.1781783458', formData.subject);
+    formDataToSubmit.append('entry.1591264647', formData.message);
+
     try {
-      const response = await fetch('https://formspree.io/f/rushibhavake1@gmail.com', {
+      // Use 'no-cors' mode because Google Forms doesn't support CORS
+      // This means we won't be able to read the response, but the data will be sent
+      await fetch(GOOGLE_FORM_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          ...formData,
-          _subject: `DigiDoc Contact Form: ${formData.subject}`
-        })
+        mode: 'no-cors',
+        body: formDataToSubmit
       });
 
-      if (response.ok) {
-        setFormStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setFormStatus('error');
-      }
+      // Since we can't check response.ok in 'no-cors' mode, 
+      // we assume it worked if no error was thrown
+      setFormStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
+      console.error('Submission error:', error);
       setFormStatus('error');
     }
   };
