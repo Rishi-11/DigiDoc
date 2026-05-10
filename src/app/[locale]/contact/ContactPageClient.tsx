@@ -274,7 +274,7 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
                       className="w-full"
                       disabled={formStatus === 'submitting'}
                     >
-                      {formStatus === 'submitting' ? t('form.submitting', { fallback: 'Submitting...' }) : t('form.submit.default')}
+                      {formStatus === 'submitting' ? t('form.submit.loading') : t('form.submit.default')}
                       <Send className="ml-2 h-4 w-4" />
                     </Button>
                   </form>
