@@ -28,6 +28,14 @@
       "title": "Contact Us",
       "description": "Get in touch with DigiDoc team. We'd love to hear from you."
     },
+    "terms": {
+      "title": "Terms of Service",
+      "description": "Terms of Service for DigiDoc"
+    },
+    "cookies": {
+      "title": "Cookies Policy",
+      "description": "Cookies Policy for DigiDoc"
+    },
     "keywords": {
       "pdfTools": "PDF tools",
       "mergePdf": "merge PDF",
