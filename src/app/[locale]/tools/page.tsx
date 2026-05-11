@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
 import { generateToolsListMetadata } from '@/lib/seo';
@@ -28,16 +27,7 @@ interface ToolsPageProps {
   params: Promise<{ locale: string }>;
 }
 
-function ToolsPageFallback() {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-[hsl(var(--color-muted-foreground))]">
-        Loading...
-      </div>
-    </div>
-  );
-}
-
+// Suspense removed since it's fully statically generated
 export default async function ToolsPage({ params }: ToolsPageProps) {
   const { locale } = await params;
 
@@ -62,8 +52,6 @@ export default async function ToolsPage({ params }: ToolsPageProps) {
   // Note: searchParams are handled client-side in ToolsPageClient
   // because static export doesn't support server-side searchParams
   return (
-    <Suspense fallback={<ToolsPageFallback />}>
-      <ToolsPageClient locale={locale as Locale} localizedToolContent={localizedToolContent} />
-    </Suspense>
+    <ToolsPageClient locale={locale as Locale} localizedToolContent={localizedToolContent} />
   );
 }

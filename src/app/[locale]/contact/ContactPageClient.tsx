@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Mail, MessageSquare, Github, Twitter, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, MessageSquare, Github, Twitter } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/Button';
@@ -14,18 +13,9 @@ interface ContactPageClientProps {
   locale: Locale;
 }
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
-
 export default function ContactPageClient({ locale }: ContactPageClientProps) {
   const t = useTranslations('contactPage');
   const tCommon = useTranslations('common');
-  const [formStatus, setFormStatus] = useState<FormStatus>('idle');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
 
   const contactMethods = [
     {
@@ -50,47 +40,6 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
       href: '#',
     },
   ];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setFormStatus('submitting');
-    
-    // Google Form details
-    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfXCrUQccGjvSHWKi3oYDjBzPAAfLhqBmG9bz9nMP9_PHmE5g/formResponse';
-    
-    // Map your fields to Google Form Entry IDs
-    const formDataToSubmit = new URLSearchParams();
-    formDataToSubmit.append('entry.395126664', formData.name);
-    formDataToSubmit.append('entry.2008303539', formData.email);
-    formDataToSubmit.append('entry.1781783458', formData.subject);
-    formDataToSubmit.append('entry.1591264647', formData.message);
-
-    try {
-      // Use 'no-cors' mode because Google Forms doesn't support CORS
-      // This means we won't be able to read the response, but the data will be sent
-      await fetch(GOOGLE_FORM_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formDataToSubmit.toString(),
-      });
-
-      // Since we can't check response.ok in 'no-cors' mode, 
-      // we assume it worked if no error was thrown
-      setFormStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Submission error:', error);
-      setFormStatus('error');
-    }
-  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -146,143 +95,6 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
           </div>
         </section>
 
-        {/* Contact Form */}
-        <section className="py-12 bg-[hsl(var(--color-muted)/0.3)]">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mb-2">
-                  {t('form.title')}
-                </h2>
-                <p className="text-[hsl(var(--color-muted-foreground))]">
-                  {t('form.description')}
-                </p>
-              </div>
-
-              {formStatus === 'success' ? (
-                <Card className="p-8 text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
-                    <CheckCircle className="h-8 w-8 text-green-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-[hsl(var(--color-foreground))] mb-2">
-                    {t('form.success.title')}
-                  </h3>
-                  <p className="text-[hsl(var(--color-muted-foreground))] mb-6">
-                    {t('form.success.description')}
-                  </p>
-                  <Button variant="outline" onClick={() => setFormStatus('idle')}>
-                    {t('form.success.button')}
-                  </Button>
-                </Card>
-              ) : (
-                <Card className="p-6 md:p-8">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium text-[hsl(var(--color-foreground))] mb-2"
-                        >
-                          {t('form.fields.name.label')}
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-2 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-ring))]"
-                          placeholder={t('form.fields.name.placeholder')}
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-[hsl(var(--color-foreground))] mb-2"
-                        >
-                          {t('form.fields.email.label')}
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-2 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-ring))]"
-                          placeholder={t('form.fields.email.placeholder')}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="subject"
-                        className="block text-sm font-medium text-[hsl(var(--color-foreground))] mb-2"
-                      >
-                        {t('form.fields.subject.label')}
-                      </label>
-                      <select
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-2 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-ring))]"
-                      >
-                        <option value="">{t('form.fields.subject.placeholder')}</option>
-                        <option value="general">{t('form.fields.subject.options.general')}</option>
-                        <option value="bug">{t('form.fields.subject.options.bug')}</option>
-                        <option value="feature">{t('form.fields.subject.options.feature')}</option>
-                        <option value="feedback">{t('form.fields.subject.options.feedback')}</option>
-                        <option value="other">{t('form.fields.subject.options.other')}</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-[hsl(var(--color-foreground))] mb-2"
-                      >
-                        {t('form.fields.message.label')}
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={6}
-                        className="w-full px-4 py-2 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-ring))] resize-none"
-                        placeholder={t('form.fields.message.placeholder')}
-                      />
-                    </div>
-
-                    {formStatus === 'error' && (
-                      <div className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                        <AlertCircle className="h-5 w-5 flex-shrink-0" />
-                        <p className="text-sm">
-                          {t('form.error')}
-                        </p>
-                      </div>
-                    )}
-
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      className="w-full"
-                      disabled={formStatus === 'submitting'}
-                    >
-                      {formStatus === 'submitting' ? t('form.submit.loading') : t('form.submit.default')}
-                      <Send className="ml-2 h-4 w-4" />
-                    </Button>
-                  </form>
-                </Card>
-              )}
-            </div>
-          </div>
-        </section>
 
         {/* FAQ Link */}
         <section className="py-12">

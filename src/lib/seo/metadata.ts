@@ -42,7 +42,10 @@ export interface ToolMetadataOptions extends BaseMetadataOptions {
  */
 export function getCanonicalUrl(locale: Locale, path: string = ''): string {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  return `${siteConfig.url}/${locale}${cleanPath}`;
+  // Ensure trailing slash for all paths except root if it's just the locale
+  const urlPath = `${locale}${cleanPath}`;
+  const finalPath = urlPath.endsWith('/') ? urlPath : `${urlPath}/`;
+  return `${siteConfig.url}/${finalPath}`;
 }
 
 /**
@@ -53,11 +56,15 @@ export function getAlternateUrls(path: string = ''): Record<string, string> {
   const alternates: Record<string, string> = {};
 
   for (const locale of locales) {
-    alternates[locale] = `${siteConfig.url}/${locale}${cleanPath}`;
+    const urlPath = `${locale}${cleanPath}`;
+    const finalPath = urlPath.endsWith('/') ? urlPath : `${urlPath}/`;
+    alternates[locale] = `${siteConfig.url}/${finalPath}`;
   }
 
   // Add x-default pointing to English
-  alternates['x-default'] = `${siteConfig.url}/en${cleanPath}`;
+  const defaultPath = `en${cleanPath}`;
+  const finalDefaultPath = defaultPath.endsWith('/') ? defaultPath : `${defaultPath}/`;
+  alternates['x-default'] = `${siteConfig.url}/${finalDefaultPath}`;
 
   return alternates;
 }

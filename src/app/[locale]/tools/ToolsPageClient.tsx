@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation'; // Removing this from imports to avoid de-opting
 import { Search, X, Filter, Star } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -25,7 +25,6 @@ interface ToolsPageClientProps {
 
 export default function ToolsPageClient({ locale, localizedToolContent }: ToolsPageClientProps) {
   const t = useTranslations();
-  const searchParams = useSearchParams();
   const allTools = getAllTools();
   const { favorites, isLoaded: favoritesLoaded, favoritesCount } = useFavorites();
 
@@ -38,22 +37,19 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
     'secure-pdf': 'securePdf',
   };
 
-  // Read initial values from URL search params (client-side)
-  const initialCategory = searchParams.get('category') || 'all';
-  const initialQuery = searchParams.get('q') || '';
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
 
-  const [searchQuery, setSearchQuery] = useState(initialQuery);
-  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>(
-    (initialCategory as ToolCategory) || 'all'
-  );
-
-  // Sync state with URL params when they change
+  // Sync state with URL params when they change (client-side only)
   useEffect(() => {
-    const category = searchParams.get('category') || 'all';
-    const query = searchParams.get('q') || '';
-    setSelectedCategory(category as CategoryFilter);
-    setSearchQuery(query);
-  }, [searchParams]);
+    if (typeof window !== 'undefined') {
+      const searchParams = new URLSearchParams(window.location.search);
+      const category = searchParams.get('category') || 'all';
+      const query = searchParams.get('q') || '';
+      setSelectedCategory(category as CategoryFilter);
+      setSearchQuery(query);
+    }
+  }, []);
   const [showFilters, setShowFilters] = useState(false);
 
   // Filter tools based on search and category
