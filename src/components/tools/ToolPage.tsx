@@ -10,7 +10,7 @@ import { type Locale } from '@/lib/i18n/config';
 import { ToolProvider } from '@/lib/contexts/ToolContext';
 import { getToolIcon } from '@/config/icons';
 import Link from 'next/link';
-import { Home, ChevronRight } from 'lucide-react';
+import { Home, ChevronRight, Lock } from 'lucide-react';
 import { FavoriteButton } from '@/components/ui/FavoriteButton';
 import { GoogleAd } from '@/components/ads/GoogleAd';
 import { useMemo } from 'react';
@@ -184,8 +184,12 @@ function ToolHeader({ tool, content }: ToolHeaderProps) {
       >
         {content.metaDescription}
       </p>
-      <div className="flex items-center justify-center">
+      <div className="flex flex-wrap items-center justify-center gap-4">
         <FavoriteButton toolId={tool.id} size="lg" showLabel />
+        <div className="flex items-center gap-2 text-sm text-[hsl(var(--color-muted-foreground))] bg-[hsl(var(--color-background)/0.5)] px-4 py-2 rounded-full border border-[hsl(var(--color-border))] backdrop-blur-sm" title="Your files are processed locally and never uploaded to any server.">
+          <Lock className="h-4 w-4 text-green-500" aria-hidden="true" />
+          <span>Processed securely in your browser</span>
+        </div>
       </div>
     </header>
   );

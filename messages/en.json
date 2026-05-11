@@ -20,6 +20,10 @@
       "title": "Privacy Policy",
       "description": "DigiDoc privacy policy. Your files never leave your device - all processing happens locally in your browser."
     },
+    "security": {
+      "title": "Security & Local Processing Architecture",
+      "description": "Learn how DigiDoc keeps your documents secure through 100% local, on-device browser processing using WebAssembly. Zero server uploads."
+    },
     "contact": {
       "title": "Contact Us",
       "description": "Get in touch with DigiDoc team. We'd love to hear from you."
@@ -400,6 +404,35 @@
       "button": "View FAQ"
     }
   },
+  "securityPage": {
+    "title": "Security & Architecture",
+    "description": "How we process your sensitive documents locally and securely without ever seeing your data.",
+    "architecture": {
+      "title": "Local Processing Architecture",
+      "description": "Unlike traditional PDF tools that upload your files to a cloud server, DigiDoc operates entirely within your web browser.",
+      "p1": "When you use a tool on DigiDoc, the processing engine (powered by WebAssembly) is downloaded to your browser once. Your files never leave your device, and all modifications happen using your computer's own processing power.",
+      "p2": "This ensures complete data privacy, zero risk of interception during upload/download, and compliance with strict data handling policies."
+    },
+    "features": {
+      "title": "Security Features",
+      "zeroUploads": {
+        "title": "Zero Server Uploads",
+        "description": "Your files are never transmitted over the internet to our servers."
+      },
+      "wasm": {
+        "title": "WebAssembly Powered",
+        "description": "We use compiled C++ and Rust libraries running securely in your browser's sandbox."
+      },
+      "ephemeral": {
+        "title": "Ephemeral Storage",
+        "description": "Data is only kept in memory while you are on the page. Once you close the tab, everything is permanently gone."
+      }
+    },
+    "compliance": {
+      "title": "Built for Compliance",
+      "description": "Our local-first approach helps you maintain compliance with GDPR, HIPAA, and strict corporate data policies by ensuring that sensitive PII or confidential company data is never exposed to third-party servers."
+    }
+  },
   "errors": {
     "pageError": "Something went wrong",
     "pageErrorDescription": "An unexpected error occurred. Please try again.",
@@ -426,10 +459,10 @@
   },
   "home": {
     "hero": {
-      "title": "Professional PDF Tools",
-      "highlight": "Professional Tools",
-      "subtitle": "Free, private, and powerful PDF processing in your browser",
-      "cta": "Get Started"
+      "title": "Secure PDF Tools",
+      "highlight": "Processed Locally",
+      "subtitle": "Zero server uploads. Private document processing built for sensitive workflows.",
+      "cta": "Process Locally"
     },
     "features": {
       "privacy": {
@@ -437,12 +470,12 @@
         "description": "All processing happens in your browser. Your files never leave your device."
       },
       "free": {
-        "title": "Completely Free",
-        "description": "No registration, no limits, no hidden costs."
+        "title": "Trusted by Professionals",
+        "description": "Designed for Legal, HR, and Finance teams handling sensitive documents."
       },
       "powerful": {
-        "title": "Powerful Tools",
-        "description": "67+ professional PDF tools for all your needs."
+        "title": "Zero Server Uploads",
+        "description": "We never store or see your data. Maximum compliance and security."
       }
     },
     "popularTools": {

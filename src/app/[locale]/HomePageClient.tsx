@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { ArrowRight, Zap, Wrench, Lock, Sparkles, Edit, FileImage, FolderOpen, Settings, ShieldCheck, Star } from 'lucide-react';
+import { ArrowRight, Briefcase, ServerOff, Lock, Sparkles, Edit, FileImage, FolderOpen, Settings, ShieldCheck, Star } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ToolGrid } from '@/components/tools/ToolGrid';
@@ -39,13 +39,13 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
       color: 'text-green-500',
     },
     {
-      icon: Zap,
+      icon: Briefcase,
       titleKey: 'home.features.free.title',
       descriptionKey: 'home.features.free.description',
       color: 'text-yellow-500',
     },
     {
-      icon: Wrench,
+      icon: ServerOff,
       titleKey: 'home.features.powerful.title',
       descriptionKey: 'home.features.powerful.description',
       color: 'text-blue-500',

@@ -91,7 +91,7 @@ export function generateBaseMetadata(options: PageMetadataOptions): Metadata {
   return {
     title: fullTitle,
     description: optimizedDescription,
-    keywords: [...new Set([...keywords, 'PDF', 'PDF tools', 'free', 'online', siteConfig.name])],
+    keywords: [...new Set([...keywords, 'PDF', 'secure PDF tools', 'local PDF processing', 'private', siteConfig.name])],
     authors: [{ name: siteConfig.creator }],
     creator: siteConfig.creator,
     publisher: siteConfig.name,
@@ -156,12 +156,12 @@ export function generateToolMetadata(options: ToolMetadataOptions): Metadata {
   // Enhance keywords with common PDF-related terms
   const enhancedKeywords = [
     ...content.keywords,
-    'free',
-    'online',
-    'no registration',
-    'browser-based',
     'secure',
     'private',
+    'local processing',
+    'offline PDF tools',
+    'confidential',
+    'browser-based',
   ];
 
   return generateBaseMetadata({
@@ -185,7 +185,7 @@ export function generateHomeMetadata(locale: Locale, translations?: { title: str
     path: '',
     title: translations?.title || defaultTitle,
     description: translations?.description || defaultDescription,
-    keywords: ['PDF tools', 'merge PDF', 'split PDF', 'compress PDF', 'convert PDF', 'free PDF tools', 'online PDF editor'],
+    keywords: ['secure PDF tools', 'local PDF processing', 'private PDF editor', 'offline PDF tools', 'confidential document processing', 'merge PDF securely', 'split PDF locally'],
   });
 }
 
@@ -198,7 +198,7 @@ export function generateToolsListMetadata(locale: Locale, translations?: { title
     path: '/tools',
     title: translations?.title || 'All PDF Tools',
     description: translations?.description || 'Browse all 67+ professional PDF tools. Merge, split, compress, convert, edit, and secure your PDF files for free.',
-    keywords: ['PDF tools', 'all PDF tools', 'PDF editor', 'PDF converter', 'PDF merger', 'PDF splitter'],
+    keywords: ['secure PDF tools', 'private PDF tools', 'local PDF editor', 'secure PDF converter', 'private PDF merger', 'offline PDF splitter'],
   });
 }
 
@@ -238,6 +238,19 @@ export function generatePrivacyMetadata(locale: Locale, translations?: { title: 
     title: translations?.title || 'Privacy Policy',
     description: translations?.description || `${siteConfig.name} privacy policy. Your files never leave your device - all processing happens locally in your browser.`,
     keywords: ['privacy', 'security', 'data protection', 'local processing'],
+  });
+}
+
+/**
+ * Generate metadata for the security page
+ */
+export function generateSecurityMetadata(locale: Locale, translations?: { title: string; description: string }): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: '/security',
+    title: translations?.title || 'Security & Local Processing Architecture',
+    description: translations?.description || `Learn how ${siteConfig.name} keeps your documents secure through 100% local, on-device browser processing using WebAssembly. Zero server uploads.`,
+    keywords: ['security', 'WebAssembly', 'local processing', 'document security', 'privacy first', 'secure PDF'],
   });
 }
 

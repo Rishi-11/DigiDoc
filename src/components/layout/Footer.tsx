@@ -98,29 +98,33 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             </ul>
           </div>
 
-          {/* Security Features */}
+          {/* Security & Privacy Links */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-[hsl(var(--color-foreground))] mb-6">
-              Security
+              Security & Privacy
             </h3>
             <ul className="flex flex-col gap-4">
-              <li className="flex items-start gap-3">
-                <div className="mt-0.5 p-1 rounded bg-[hsl(var(--color-success)/0.1)] text-[hsl(var(--color-success))]">
-                  <Lock className="h-3 w-3" />
-                </div>
-                <div>
-                  <span className="block text-sm font-medium text-[hsl(var(--color-foreground))]">Client-side processing</span>
-                  <span className="text-xs text-[hsl(var(--color-muted-foreground))]">Files never leave your device</span>
-                </div>
+              <li>
+                <Link href={`/${locale}/security`} className="group flex items-start gap-3 hover:opacity-80 transition-opacity">
+                  <div className="mt-0.5 p-1 rounded bg-[hsl(var(--color-success)/0.1)] text-[hsl(var(--color-success))]">
+                    <Lock className="h-3 w-3" />
+                  </div>
+                  <div>
+                    <span className="block text-sm font-medium text-[hsl(var(--color-foreground))] group-hover:text-[hsl(var(--color-primary))] transition-colors">Local Processing</span>
+                    <span className="text-xs text-[hsl(var(--color-muted-foreground))]">How your files stay secure</span>
+                  </div>
+                </Link>
               </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-0.5 p-1 rounded bg-[hsl(var(--color-primary)/0.1)] text-[hsl(var(--color-primary))]">
-                  <FileCheck className="h-3 w-3" />
-                </div>
-                <div>
-                  <span className="block text-sm font-medium text-[hsl(var(--color-foreground))]">No file uploads</span>
-                  <span className="text-xs text-[hsl(var(--color-muted-foreground))]">100% private & secure</span>
-                </div>
+              <li>
+                <Link href={`/${locale}/security#architecture`} className="group flex items-start gap-3 hover:opacity-80 transition-opacity">
+                  <div className="mt-0.5 p-1 rounded bg-[hsl(var(--color-primary)/0.1)] text-[hsl(var(--color-primary))]">
+                    <FileCheck className="h-3 w-3" />
+                  </div>
+                  <div>
+                    <span className="block text-sm font-medium text-[hsl(var(--color-foreground))] group-hover:text-[hsl(var(--color-primary))] transition-colors">Architecture</span>
+                    <span className="text-xs text-[hsl(var(--color-muted-foreground))]">WebAssembly & privacy</span>
+                  </div>
+                </Link>
               </li>
             </ul>
           </div>
