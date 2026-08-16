@@ -26,6 +26,10 @@ export default function RootPage() {
     }
   }, [router]);
 
-  // Render nothing while redirecting
-  return null;
+  // Immediate meta-refresh fallback in case client JS is delayed
+  return (
+    <head>
+      <meta httpEquiv="refresh" content="0; url=/en/" />
+    </head>
+  );
 }
