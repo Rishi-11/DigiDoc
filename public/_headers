@@ -11,9 +11,9 @@
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  # Required for SharedArrayBuffer (LibreOffice WASM pthreads)
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Embedder-Policy: require-corp
+  # Security & Cross-Origin policies (credentialless enables AdSense & Analytics while allowing WASM)
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Cross-Origin-Embedder-Policy: credentialless
   Cross-Origin-Resource-Policy: cross-origin
 
 # HTML pages - no cache, always revalidate

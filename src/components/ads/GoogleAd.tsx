@@ -12,8 +12,8 @@ interface GoogleAdProps {
 }
 
 export function GoogleAd({
-  client = 'ca-pub-4618366384114056', // Replace with actual client ID
-  slot = 'YOUR_AD_SLOT_ID',          // Replace with actual slot ID
+  client = 'ca-pub-4618366384114056',
+  slot,
   format = 'auto',
   responsive = true,
   className = '',
@@ -21,9 +21,10 @@ export function GoogleAd({
 }: GoogleAdProps) {
   const adRef = useRef<HTMLModElement>(null);
   const isDev = process.env.NODE_ENV === 'development';
+  const isValidSlot = Boolean(slot && /^\d+$/.test(slot));
 
   useEffect(() => {
-    if (isDev) return;
+    if (isDev || !isValidSlot) return;
 
     try {
       if (typeof window !== 'undefined') {
@@ -36,7 +37,7 @@ export function GoogleAd({
     } catch (e) {
       console.error('Google Ads setup error:', e);
     }
-  }, [slot, isDev]);
+  }, [slot, isDev, isValidSlot]);
 
   if (isDev) {
     return (
@@ -45,10 +46,15 @@ export function GoogleAd({
         style={{ minHeight: '120px', ...style }}
       >
         <span className="text-sm font-bold tracking-wider uppercase mb-2">Advertisement Placeholder</span>
-        <span>(Google AdSense will appear here in production)</span>
-        <span className="text-xs opacity-75 mt-2 font-mono">Client: {client} | Slot: {slot}</span>
+        <span>(Google AdSense will appear here in production once a numeric Ad Slot ID is provided)</span>
+        <span className="text-xs opacity-75 mt-2 font-mono">Client: {client} | Slot: {slot || 'Auto / Unset'}</span>
       </div>
     );
+  }
+
+  // In production, do not render broken/empty containers if no valid numeric slot is configured
+  if (!isValidSlot) {
+    return null;
   }
 
   return (

@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     shortcut: '/favicon.svg',
     apple: '/favicon.svg',
   },
+  other: {
+    'google-adsense-account': 'ca-pub-4618366384114056',
+  },
 };
 
 // Root layout - provides the basic HTML structure
@@ -23,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-4618366384114056" />
         <meta name="color-scheme" content="light dark" />
         <style dangerouslySetInnerHTML={{ __html: 'html{scrollbar-gutter:stable}' }} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
