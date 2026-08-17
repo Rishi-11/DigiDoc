@@ -7,12 +7,16 @@ const __dirname = path.dirname(__filename);
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
+const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (isGitHubActions ? '/DigiDoc' : '');
+const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH ?? (isGitHubActions ? '/DigiDoc' : (process.env.TAURI_ENV ? '/' : undefined));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Enable static export for deployment flexibility
   output: 'export',
-  basePath: '',
-  assetPrefix: '',
+  basePath,
+  assetPrefix,
 
   // Webpack configuration for WASM modules
   webpack: (config, { isServer, webpack }) => {

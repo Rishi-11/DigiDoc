@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://digidocpdf.online/sitemap.xml
+Sitemap: https://rishi-11.github.io/DigiDoc/sitemap.xml

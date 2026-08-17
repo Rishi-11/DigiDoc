@@ -29,7 +29,7 @@ export default function RootPage() {
   // Immediate meta-refresh fallback in case client JS is delayed
   return (
     <head>
-      <meta httpEquiv="refresh" content="0; url=/en/" />
+      <meta httpEquiv="refresh" content="0; url=en/" />
     </head>
   );
 }
